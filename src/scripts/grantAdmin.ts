@@ -72,7 +72,7 @@ async function grantAdmin(email: string) {
       collection: 'users',
       id: user.id,
       data: {
-        roles: updatedRoles,
+        roles: updatedRoles as ('user' | 'admin' | 'editor')[],
       },
     })
 

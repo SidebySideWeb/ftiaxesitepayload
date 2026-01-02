@@ -227,10 +227,10 @@ export class MediaHydrator {
       const media = await this.payload.create({
         collection: 'media',
         data: {
-          tenant: this.tenantId,
+          tenant: typeof this.tenantId === 'number' ? this.tenantId : parseInt(String(this.tenantId), 10),
           alt: altText,
         },
-        file: filePath,
+        file: filePath as any, // Payload Local API accepts file path as string
       })
 
       return media.id
@@ -248,7 +248,7 @@ export class MediaHydrator {
       const media = await this.payload.create({
         collection: 'media',
         data: {
-          tenant: this.tenantId,
+          tenant: typeof this.tenantId === 'number' ? this.tenantId : parseInt(String(this.tenantId), 10),
           alt: altText,
         },
         file: file as any,
@@ -273,7 +273,7 @@ export class MediaHydrator {
       collection: 'media',
       where: {
         and: [
-          { tenant: { equals: this.tenantId } },
+          { tenant: { equals: typeof this.tenantId === 'number' ? this.tenantId : parseInt(String(this.tenantId), 10) } },
           // We can't easily query by filename in Payload without custom fields
           // So we'll skip this check and rely on URL mapping instead
         ],

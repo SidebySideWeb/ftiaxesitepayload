@@ -92,7 +92,8 @@ class SiteSyncer {
     // Sync in order (dependencies first)
     const tenant = await this.syncTenant(syncPack.site)
     const navMenu = await this.syncNavigationMenu(syncPack.menu, tenant.id)
-    await this.syncHeader(syncPack.header, tenant.id, navMenu.id)
+    const navMenuId = 'id' in navMenu ? navMenu.id : (navMenu as any).docs?.[0]?.id || (navMenu as any).id
+    await this.syncHeader(syncPack.header, tenant.id, navMenuId)
     await this.syncFooter(syncPack.footer, tenant.id)
     
     // Hydrate media before syncing pages
@@ -257,17 +258,20 @@ class SiteSyncer {
     if (existing.docs.length > 0) {
       const menu = existing.docs[0]
       console.log(`✓ Updating navigation menu: ${menu.id}`)
-      return await this.payload.update({
+      await this.payload.update({
         collection: 'navigation-menus',
         id: menu.id,
         data: menuPayload,
+        overrideAccess: true,
       })
+      return menu
     } else {
       console.log(`✓ Creating navigation menu: ${menuData.menuTitle}`)
-      return await this.payload.create({
+      const menuResult = await this.payload.create({
         collection: 'navigation-menus',
         data: menuPayload,
       })
+      return ('id' in menuResult ? menuResult : (menuResult as any).docs?.[0] || menuResult) as any
     }
   }
 
