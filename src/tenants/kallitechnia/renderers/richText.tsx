@@ -72,7 +72,7 @@ function renderLexicalNode(node: any): React.ReactNode {
         return <p style={{ marginBottom: '1rem' }}>{childElements}</p>
       case 'heading':
         const level = rest.tag || rest.level || 1
-        const HeadingTag = `h${Math.min(Math.max(level, 1), 6)}` as keyof JSX.IntrinsicElements
+        const HeadingTag = `h${Math.min(Math.max(level, 1), 6)}` as keyof React.JSX.IntrinsicElements
         return (
           <HeadingTag style={{ marginBottom: '0.5rem', marginTop: '1.5rem' }}>
             {childElements}

@@ -52,15 +52,15 @@ export const kallitechniaImageGallery: Block = {
           name: 'caption',
           type: 'text',
           defaultValue: '',
-          validate: (value, { data }) => {
+          validate: (value: string | string[] | null | undefined, { data }: { data?: { enableCaptions?: boolean } }) => {
             // Only validate if captions are enabled
-            if (data?.enableCaptions && value && value.length > 200) {
+            if (data?.enableCaptions && typeof value === 'string' && value.length > 200) {
               return 'Caption must be 200 characters or less'
             }
             return true
           },
           admin: {
-            condition: (data, siblingData, { data: rootData }) => {
+            condition: (data: any, siblingData: any, { data: rootData }: any) => {
               return rootData?.enableCaptions === true
             },
             description: 'Optional caption for the image (max 200 characters)',
