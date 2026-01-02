@@ -55,11 +55,11 @@ async function createForms() {
     const tenant = tenantResult.docs[0]
 
     // Contact Form
-    const contactFormData = {
+    const contactFormData: any = {
       tenant: tenant.id,
       name: 'Contact Form',
       slug: 'contact',
-      status: 'active',
+      status: 'active' as const,
       fields: [
         {
           type: 'text',
@@ -108,11 +108,11 @@ async function createForms() {
     }
 
     // Registration Form
-    const registrationFormData = {
+    const registrationFormData: any = {
       tenant: tenant.id,
       name: 'Registration Form',
       slug: 'registration',
-      status: 'active',
+      status: 'active' as const,
       fields: [
         {
           type: 'text',

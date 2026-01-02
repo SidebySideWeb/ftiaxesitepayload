@@ -85,7 +85,7 @@ function fixBlock(block: any): { fixed: boolean; block: any } {
   for (const [key, value] of Object.entries(newBlock)) {
     if (richTextFieldNames.includes(key) && value) {
       // Check if it's a Lexical object with empty children
-      if (typeof value === 'object' && value.root) {
+      if (typeof value === 'object' && value !== null && 'root' in value && typeof (value as any).root === 'object') {
         if (hasEmptyChildren(value)) {
           console.log(`    Found empty Lexical in ${newBlock.blockType || 'unknown'}.${key}, fixing`)
           newBlock[key] = createEmptyLexical()
