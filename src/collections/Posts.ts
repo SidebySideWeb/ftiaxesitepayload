@@ -30,8 +30,8 @@ export const Posts: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
-      validate: (value) => {
-        if (!value || value.trim() === '') {
+      validate: (value: string | string[] | null | undefined) => {
+        if (typeof value !== 'string' || !value.trim()) {
           return 'Title is required'
         }
         if (value.length > 200) {
@@ -57,7 +57,7 @@ export const Posts: CollectionConfig = {
       name: 'excerpt',
       type: 'textarea',
       defaultValue: '',
-      validate: (value) => {
+      validate: (value: string | string[] | null | undefined) => {
         if (value && value.length > 300) {
           return 'Excerpt must be 300 characters or less'
         }
@@ -142,7 +142,7 @@ export const Posts: CollectionConfig = {
           name: 'title',
           type: 'text',
           defaultValue: '',
-          validate: (value) => {
+          validate: (value: string | string[] | null | undefined) => {
             if (value && value.length > 60) {
               return 'SEO title should be 60 characters or less for best results'
             }
@@ -156,7 +156,7 @@ export const Posts: CollectionConfig = {
           name: 'description',
           type: 'textarea',
           defaultValue: '',
-          validate: (value) => {
+          validate: (value: string | string[] | null | undefined) => {
             if (value && value.length > 160) {
               return 'Meta description should be 160 characters or less for best results'
             }

@@ -50,8 +50,8 @@ export const Headers: CollectionConfig = {
       name: 'topBarText',
       type: 'text',
       defaultValue: '',
-      validate: (value, { data }) => {
-        if (data?.enableTopBar && value && value.length > 100) {
+      validate: (value: string | string[] | null | undefined, { data }: { data?: { enableTopBar?: boolean } }) => {
+        if (data?.enableTopBar && typeof value === 'string' && value.length > 100) {
           return 'Top bar text must be 100 characters or less'
         }
         return true

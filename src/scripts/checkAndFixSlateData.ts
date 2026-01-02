@@ -460,9 +460,7 @@ async function main() {
     console.error('❌ Migration failed:', error)
     process.exit(1)
   } finally {
-    if (payload && typeof payload.shutdown === 'function') {
-      await payload.shutdown()
-    }
+    // Payload shutdown is handled automatically
     process.exit(0)
   }
 }

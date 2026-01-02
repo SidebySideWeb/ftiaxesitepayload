@@ -77,8 +77,9 @@ async function clearHomepage(tenantCode: string) {
     await payload.update({
       collection: 'homepages',
       id: homepage.id,
-      data: {},
-      unset: ['sections'],
+      data: {
+        sections: [],
+      },
       overrideAccess: true,
     })
 

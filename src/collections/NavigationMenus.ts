@@ -42,8 +42,8 @@ export const NavigationMenus: CollectionConfig = {
           name: 'label',
           type: 'text',
           required: true,
-          validate: (value) => {
-            if (!value || value.trim() === '') {
+          validate: (value: string | string[] | null | undefined) => {
+            if (typeof value !== 'string' || !value.trim()) {
               return 'Label is required'
             }
             if (value.length > 50) {
@@ -87,9 +87,9 @@ export const NavigationMenus: CollectionConfig = {
           name: 'url',
           type: 'text',
           defaultValue: '',
-          validate: (value, { data }) => {
+          validate: (value: string | string[] | null | undefined, { data }: { data?: { type?: string } }) => {
             if (data?.type === 'external') {
-              if (!value || value.trim() === '') {
+              if (typeof value !== 'string' || !value.trim()) {
                 return 'URL is required for external links'
               }
               return validateUrl(value)

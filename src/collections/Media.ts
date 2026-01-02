@@ -53,8 +53,8 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: true,
-      validate: (value) => {
-        if (!value || value.trim() === '') {
+      validate: (value: string | string[] | null | undefined) => {
+        if (typeof value !== 'string' || !value.trim()) {
           return 'Alt text is required for accessibility'
         }
         if (value.length > 200) {

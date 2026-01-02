@@ -92,8 +92,8 @@ export const Pages: CollectionConfig = {
           name: 'title',
           type: 'text',
           defaultValue: '',
-          validate: (value) => {
-            if (value && value.length > 60) {
+          validate: (value: string | string[] | null | undefined) => {
+            if (typeof value === 'string' && value.length > 60) {
               return 'SEO title should be 60 characters or less for best results'
             }
             return true
@@ -106,8 +106,8 @@ export const Pages: CollectionConfig = {
           name: 'description',
           type: 'textarea',
           defaultValue: '',
-          validate: (value) => {
-            if (value && value.length > 160) {
+          validate: (value: string | string[] | null | undefined) => {
+            if (typeof value === 'string' && value.length > 160) {
               return 'Meta description should be 160 characters or less for best results'
             }
             return true

@@ -218,6 +218,7 @@ async function createForms() {
         collection: 'forms',
         id: existingContact.docs[0].id,
         data: contactFormData,
+        overrideAccess: true,
       })
     } else {
       console.log(`✓ Creating contact form`)
@@ -234,6 +235,7 @@ async function createForms() {
         collection: 'forms',
         id: existingRegistration.docs[0].id,
         data: registrationFormData,
+        overrideAccess: true,
       })
     } else {
       console.log(`✓ Creating registration form`)
