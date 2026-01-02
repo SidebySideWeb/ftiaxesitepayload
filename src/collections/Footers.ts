@@ -27,7 +27,7 @@ export const Footers: CollectionConfig = {
       name: 'copyrightText',
       type: 'text',
       defaultValue: '',
-      validate: (value) => {
+      validate: (value: string | undefined) => {
         if (value && value.length > 200) {
           return 'Copyright text must be 200 characters or less'
         }
@@ -49,7 +49,7 @@ export const Footers: CollectionConfig = {
           name: 'platform',
           type: 'text',
           required: true,
-          validate: (value) => {
+          validate: (value: string | undefined) => {
             if (!value || value.trim() === '') {
               return 'Platform name is required'
             }
