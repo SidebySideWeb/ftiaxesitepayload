@@ -250,7 +250,7 @@ class SiteSyncer {
     )
 
     const menuPayload = {
-      tenant: tenantId,
+      tenant: typeof tenantId === 'number' ? tenantId : parseInt(String(tenantId), 10),
       title: menuData.menuTitle,
       items,
     }
