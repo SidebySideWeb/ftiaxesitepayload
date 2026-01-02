@@ -1,0 +1,276 @@
+{
+  "title": "Εγγραφές",
+  "slug": "registration",
+  "blocks": [
+    {
+      "blockType": "kallitechnia.richText",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "H Kallitechnia Gymnastics Kefalonia σας καλωσορίζει στην ομάδα της.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "heading",
+              "version": 1,
+              "tag": "h2"
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Τα μαθήματά ξεκινούν από τη Δευτέρα 1 Δεκεμβρίου 2025!",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      }
+    },
+    {
+      "blockType": "kallitechnia.richText",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "ΑΠΑΡΑΙΤΗΤΑ ΕΓΓΡΑΦΑ ΓΙΑ ΤΗΝ ΣΥΜΜΕΤΟΧΗ ΣΑΣ",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "heading",
+              "version": 1,
+              "tag": "h2"
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Αίτηση Εγγραφής",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "heading",
+              "version": 1,
+              "tag": "h3"
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Μπορείτε να παραλάβετε την αίτηση εγγραφής από τη Γραμματεία του Συλλόγου ή να την κατεβάσετε σε μορφή PDF και να την τυπώσετε.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Δικαιολογητικά Εγγραφής",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "heading",
+              "version": 1,
+              "tag": "h3"
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "• Ιατρική βεβαίωση (πρωτότυπη)",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "• Πιστοποιητικό γέννησης (πρωτότυπο)",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "• Φωτοτυπία ταυτότητας για όσους έχουν εκδώσει",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "• Το ΑΜΚΑ της αθλήτριας",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      }
+    },
+    {
+      "blockType": "kallitechnia.downloadButton",
+      "title": "Αίτηση Εγγραφής",
+      "description": "Μπορείτε να παραλάβετε την αίτηση εγγραφής από τη Γραμματεία του Συλλόγου ή να την κατεβάσετε σε μορφή PDF και να την τυπώσετε.",
+      "buttonLabel": "Κατέβασε την Αίτηση (PDF)",
+      "fileUrl": "/documents/registration-form.pdf",
+      "fileName": "Αίτηση_Εγγραφής.pdf"
+    },
+    {
+      "blockType": "kallitechnia.contactInfo",
+      "title": "Πληροφορίες Εγγραφής",
+      "items": [
+        {
+          "type": "address",
+          "label": "Διεύθυνση",
+          "content": "Αργοστόλι\nΚεφαλονιά, 28100"
+        },
+        {
+          "type": "phone",
+          "label": "Τηλέφωνο",
+          "content": "+30 123 456 7890"
+        },
+        {
+          "type": "email",
+          "label": "Email",
+          "content": "info@kallitechnia.gr"
+        },
+        {
+          "type": "hours",
+          "label": "Ωράριο",
+          "content": "Δευτέρα - Παρασκευή\n17:00 - 21:00"
+        }
+      ]
+    },
+    {
+      "blockType": "kallitechnia.form",
+      "form": null,
+      "title": "Φόρμα Εγγραφής",
+      "description": {
+        "root": {
+          "children": [
+            {
+              "children": [],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      }
+    }
+  ]
+}

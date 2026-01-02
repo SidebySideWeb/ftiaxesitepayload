@@ -1,0 +1,44 @@
+{
+  "title": "Επικοινωνία",
+  "slug": "contact",
+  "blocks": [
+    {
+      "blockType": "kallitechnia.form",
+      "form": null,
+      "title": "Στείλτε μας Μήνυμα",
+      "description": "Συμπληρώστε τη φόρμα και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό."
+    },
+    {
+      "blockType": "kallitechnia.contactInfo",
+      "title": "",
+      "items": [
+        {
+          "type": "address",
+          "label": "Διεύθυνση",
+          "content": "Αργοστόλι\nΚεφαλονιά, 28100\nΕλλάδα"
+        },
+        {
+          "type": "phone",
+          "label": "Τηλέφωνο",
+          "content": "+30 123 456 7890\n+30 098 765 4321"
+        },
+        {
+          "type": "email",
+          "label": "Email",
+          "content": "info@kallitechnia-kefalonia.gr\ncontact@kallitechnia-kefalonia.gr"
+        },
+        {
+          "type": "hours",
+          "label": "Ώρες Λειτουργίας",
+          "content": "Δευτέρα - Παρασκευή: 16:00 - 21:00\nΣάββατο: 10:00 - 14:00\nΚυριακή: Κλειστά"
+        }
+      ]
+    },
+    {
+      "blockType": "kallitechnia.googleMap",
+      "title": "Πού Βρισκόμαστε",
+      "embedCode": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50234.89474920634!2d20.456789!3d38.176944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135e4c3e3e3e3e3e%3A0x3e3e3e3e3e3e3e3e!2sArgostoli%2C%20Greece!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s",
+      "height": 450
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "title": "Όροι Χρήσης",
+  "slug": "terms",
+  "blocks": [
+    {
+      "blockType": "kallitechnia.richText",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Εδώ μπορείτε να προσθέσετε τους όρους χρήσης της ιστοσελίδας.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      }
+    }
+  ]
+}

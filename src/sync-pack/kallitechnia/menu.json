@@ -1,0 +1,29 @@
+{
+  "menuTitle": "Main Navigation",
+  "items": [
+    {
+      "href": "/",
+      "label": "Αρχική"
+    },
+    {
+      "href": "/about",
+      "label": "Ο Σύλλογος"
+    },
+    {
+      "href": "/news",
+      "label": "Νέα"
+    },
+    {
+      "href": "/programs",
+      "label": "Πρόγραμμα"
+    },
+    {
+      "href": "/registration",
+      "label": "Εγγραφές"
+    },
+    {
+      "href": "/contact",
+      "label": "Επικοινωνία"
+    }
+  ]
+}

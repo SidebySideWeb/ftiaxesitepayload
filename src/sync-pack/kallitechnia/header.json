@@ -1,0 +1,30 @@
+{
+  "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20KGK%20%CF%85%CF%88%CE%B7%CE%BB%CE%AE%CF%82%20%CE%B1%CE%BD%CE%AC%CE%BB%CF%85%CF%83%CE%B7%CF%82-YP2dWdAD9HKxgCBQOBLccXnxTydRcQ.png",
+  "logoAlt": "Kallitechnia Gymnastics Kefalonia",
+  "navigationMenu": [
+    {
+      "href": "/",
+      "label": "Αρχική"
+    },
+    {
+      "href": "/about",
+      "label": "Ο Σύλλογος"
+    },
+    {
+      "href": "/news",
+      "label": "Νέα"
+    },
+    {
+      "href": "/programs",
+      "label": "Πρόγραμμα"
+    },
+    {
+      "href": "/registration",
+      "label": "Εγγραφές"
+    },
+    {
+      "href": "/contact",
+      "label": "Επικοινωνία"
+    }
+  ]
+}

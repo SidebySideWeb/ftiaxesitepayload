@@ -1,0 +1,152 @@
+{
+  "title": "Homepage",
+  "slug": "home",
+  "blocks": [
+    {
+      "blockType": "kallitechnia.hero",
+      "title": "Η Γυμναστική είναι δύναμη, χαρά, δημιουργία.",
+      "subtitle": "Ανακαλύψτε τη μαγεία της γυμναστικής στον σύλλογό μας.",
+      "backgroundImage": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4E61F67B-0337-4478-8A77-8114550D1239%20%281%29-hJCE20zQfhEIr0Zo1h6Mk1Zl1U47lS.jpeg",
+      "ctaLabel": "Δες τα Τμήματά μας",
+      "ctaUrl": "/programs"
+    },
+    {
+      "blockType": "kallitechnia.welcome",
+      "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6321-EPivdvbOD9wX1IPMd2dA4e3aZlVtiE.jpeg",
+      "title": "Καλώς ήρθατε στην Καλλιτεχνία!",
+      "paragraphs": [
+        "Είμαι η Ελένη Δαρδαμάνη, ιδρύτρια του συλλόγου μας. Με πάθος και αφοσίωση, δημιουργήσαμε έναν χώρο όπου κάθε παιδί μπορεί να εκφραστεί, να αναπτυχθεί και να λάμψει μέσα από τη γυμναστική.",
+        "Η Καλλιτεχνία δεν είναι απλώς ένας σύλλογος - είναι μια οικογένεια που υποστηρίζει κάθε αθλητή στο ταξίδι του προς την αριστεία.",
+        "Ελάτε να γνωρίσετε τον κόσμο της γυμναστικής μαζί μας!"
+      ]
+    },
+    {
+      "blockType": "kallitechnia.programsGrid",
+      "title": "Τα Τμήματά μας",
+      "subtitle": "Προσφέρουμε προγράμματα για όλες τις ηλικίες και τα επίπεδα",
+      "programs": [
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6341-lYd2EHQV08gx6DxJdWhs3MXKIhJs8l.jpeg",
+          "title": "Καλλιτεχνική",
+          "description": "Αναπτύξτε δύναμη, ευλυγισία και χάρη μέσα από την καλλιτεχνική γυμναστική",
+          "buttonLabel": "Μάθετε Περισσότερα",
+          "buttonUrl": "/programs#kallitexniki"
+        },
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6340%20%281%29-6T0A1KQPyDVi8Gr7ev3c5o4qGRiEuW.jpeg",
+          "title": "Ρυθμική",
+          "description": "Συνδυάστε χορό, μουσική και γυμναστική με όργανα όπως κορδέλα και μπάλα",
+          "buttonLabel": "Μάθετε Περισσότερα",
+          "buttonUrl": "/programs#rythmiki"
+        },
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6320-Pb93nEudabKTDpdQwN5hOwhW0tlBou.jpeg",
+          "title": "Προαγωνιστικά",
+          "description": "Εντατική προετοιμασία για αθλητές που στοχεύουν σε αγώνες και διακρίσεις",
+          "buttonLabel": "Μάθετε Περισσότερα",
+          "buttonUrl": "/programs#proagonistika"
+        },
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6323-LZ8D1nFb8q5atienRmdoRw14ABglt6.jpeg",
+          "title": "Παιδικά",
+          "description": "Εισαγωγή στη γυμναστική για παιδιά 4-7 ετών με παιχνίδι και διασκέδαση",
+          "buttonLabel": "Μάθετε Περισσότερα",
+          "buttonUrl": "/programs#paidika"
+        }
+      ]
+    },
+    {
+      "blockType": "kallitechnia.imageGallery",
+      "title": "Οι Στιγμές μας",
+      "subtitle": "Ζήστε τη μαγεία των παραστάσεων και των προπονήσεών μας",
+      "images": [
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6064-dtKNW2y3nWi4kjmvriBpP8rrQpz5wE.jpeg",
+          "title": "UV Παράσταση",
+          "description": "Μοναδικές στιγμές στη σκηνή"
+        },
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6068%20%281%29-Vk2nWKd2qSVzRl2ldqmb919zO5TCf9.jpeg",
+          "title": "Ομαδική Παράσταση",
+          "description": "Συγχρονισμός και αρμονία"
+        },
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4E61F67B-0337-4478-8A77-8114550D1239%20%281%29-hJCE20zQfhEIr0Zo1h6Mk1Zl1U47lS.jpeg",
+          "title": "Νεαρές Αθλήτριες",
+          "description": "Το μέλλον της γυμναστικής"
+        }
+      ]
+    },
+    {
+      "blockType": "kallitechnia.newsGrid",
+      "title": "Νέα & Ανακοινώσεις",
+      "subtitle": "Μείνετε ενημερωμένοι με τα τελευταία μας νέα",
+      "buttonLabel": "Όλα τα Νέα",
+      "buttonUrl": "/news",
+      "newsItems": [
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6064-dtKNW2y3nWi4kjmvriBpP8rrQpz5wE.jpeg",
+          "date": "15 Ιανουαρίου 2025",
+          "title": "Επιτυχημένη Συμμετοχή στους Πανελλήνιους Αγώνες",
+          "excerpt": "Οι αθλήτριές μας διακρίθηκαν στους πρόσφατους αγώνες, κερδίζοντας 5 μετάλλια και κάνοντας υπερήφανο τον σύλλογο.",
+          "readMoreLabel": "Διαβάστε περισσότερα",
+          "readMoreUrl": "/news"
+        },
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6341-lYd2EHQV08gx6DxJdWhs3MXKIhJs8l.jpeg",
+          "date": "8 Ιανουαρίου 2025",
+          "title": "Ανοίγουν Νέα Τμήματα για τη Σεζόν 2025",
+          "excerpt": "Ξεκινούν οι εγγραφές για τα νέα τμήματα! Προσφέρουμε δωρεάν δοκιμαστικό μάθημα για όλους τους νέους αθλητές.",
+          "readMoreLabel": "Διαβάστε περισσότερα",
+          "readMoreUrl": "/news"
+        },
+        {
+          "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6320-Pb93nEudabKTDpdQwN5hOwhW0tlBou.jpeg",
+          "date": "20 Δεκεμβρίου 2024",
+          "title": "Μαγική Ετήσια Παράσταση 2024",
+          "excerpt": "Η ετήσια παράστασή μας ήταν μια απόλυτη επιτυχία! Ευχαριστούμε όλους όσους μας τίμησαν με την παρουσία τους.",
+          "readMoreLabel": "Διαβάστε περισσότερα",
+          "readMoreUrl": "/news"
+        }
+      ]
+    },
+    {
+      "blockType": "kallitechnia.sponsors",
+      "title": "Οι Υποστηρικτές μας",
+      "subtitle": "Ευχαριστούμε θερμά τους υποστηρικτές μας",
+      "sponsors": [
+        {
+          "logo": null,
+          "name": "Χορηγός 1"
+        },
+        {
+          "logo": null,
+          "name": "Χορηγός 2"
+        },
+        {
+          "logo": null,
+          "name": "Χορηγός 3"
+        },
+        {
+          "logo": null,
+          "name": "Χορηγός 4"
+        },
+        {
+          "logo": null,
+          "name": "Χορηγός 5"
+        },
+        {
+          "logo": null,
+          "name": "Χορηγός 6"
+        }
+      ]
+    },
+    {
+      "blockType": "kallitechnia.ctaBanner",
+      "title": "Έλα κι εσύ στην οικογένεια της Καλλιτεχνίας!",
+      "description": "Ξεκινήστε το ταξίδι σας στον κόσμο της γυμναστικής. Προσφέρουμε δωρεάν δοκιμαστικό μάθημα!",
+      "buttonLabel": "Επικοινώνησε μαζί μας",
+      "buttonUrl": "/contact"
+    }
+  ]
+}
