@@ -60,7 +60,7 @@ Follow the prompts to:
 
 ```bash
 cd /var/www/cmsftiaxesite
-cp deploy/.env.production.example .env
+cp deploy/env.production.example .env
 nano .env
 ```
 
