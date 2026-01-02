@@ -284,8 +284,8 @@ class SiteSyncer {
     })
 
     const headerPayload: any = {
-      tenant: tenantId,
-      navigationMenu: navMenuId,
+      tenant: typeof tenantId === 'number' ? tenantId : parseInt(String(tenantId), 10),
+      navigationMenu: typeof navMenuId === 'number' ? navMenuId : parseInt(String(navMenuId), 10),
       enableTopBar: false,
     }
 
@@ -323,7 +323,7 @@ class SiteSyncer {
     })
 
     const footerPayload = {
-      tenant: tenantId,
+      tenant: typeof tenantId === 'number' ? tenantId : parseInt(String(tenantId), 10),
       copyrightText: footerData.copyrightText || '',
       socialLinks: (footerData.socialLinks || []).map((link) => ({
         platform: link.platform,
@@ -371,7 +371,7 @@ class SiteSyncer {
     const hydratedBlocks = hydrateBlocks(homePage.blocks || [], mediaMapping)
 
     const homepagePayload: any = {
-      tenant: tenantId,
+      tenant: typeof tenantId === 'number' ? tenantId : parseInt(String(tenantId), 10),
       sections: hydratedBlocks,
       status: 'published',
       schemaVersion: 1,
@@ -392,7 +392,7 @@ class SiteSyncer {
         collection: 'homepages',
         id: homepage.id,
         data: {},
-        unset: ['sections'],
+        // unset is not a valid option in Payload v3, use empty array instead
         overrideAccess: true,
       })
       // Then set new sections (full replace)
@@ -434,7 +434,7 @@ class SiteSyncer {
       const hydratedBlocks = hydrateBlocks(pageData.blocks || [], mediaMapping)
 
       const pagePayload: any = {
-        tenant: tenantId,
+        tenant: typeof tenantId === 'number' ? tenantId : parseInt(String(tenantId), 10),
         title: pageData.title,
         slug: pageData.slug,
         sections: hydratedBlocks,
@@ -453,15 +453,7 @@ class SiteSyncer {
         const page = existing.docs[0]
         console.log(`✓ Updating page: ${pageData.slug} (${page.id}) (${hydratedBlocks.length} sections)`)
         try {
-          // First unset sections to ensure clean replacement
-          await this.payload.update({
-            collection: 'pages',
-            id: page.id,
-            data: {},
-            unset: ['sections'],
-            overrideAccess: true,
-          })
-          // Then set new sections (full replace)
+          // Set new sections (full replace)
           await this.payload.update({
             collection: 'pages',
             id: page.id,
