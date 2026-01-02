@@ -128,8 +128,8 @@ export const Forms: CollectionConfig = {
     {
       name: 'redirectUrl',
       type: 'text',
-      validate: (value) => {
-        if (!value) return true // Optional
+      validate: (value: string | string[] | null | undefined) => {
+        if (!value || typeof value !== 'string') return true // Optional
         return validateUrl(value)
       },
       admin: {
