@@ -48,3 +48,10 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# SSH keys
+key
+key.pub
+*.key
+*.pem
+*.pub
