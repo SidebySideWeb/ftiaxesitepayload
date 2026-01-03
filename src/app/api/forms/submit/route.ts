@@ -113,14 +113,13 @@ export async function POST(request: NextRequest) {
     const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || ''
     const userAgent = request.headers.get('user-agent') || ''
 
-    // Create submission (tenant will be auto-assigned via hook)
+    // Create submission (tenant will be auto-assigned via beforeChange hook)
     let submission
     try {
       submission = await payload.create({
         collection: 'form-submissions',
         data: {
           form: form.id,
-          tenant: form.tenant, // Set tenant explicitly (hook will also set it)
           payload: data,
           metadata: {
             ip: ip.split(',')[0].trim(), // Get first IP if multiple
@@ -128,7 +127,7 @@ export async function POST(request: NextRequest) {
           },
         },
       })
-      console.log('[FormSubmit] Submission created:', submission.id, 'for tenant:', submission.tenant)
+      console.log('[FormSubmit] Submission created:', submission.id, 'for tenant:', (submission as any).tenant)
     } catch (createError) {
       console.error('[FormSubmit] Failed to create submission:', createError)
       return NextResponse.json(
