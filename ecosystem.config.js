@@ -1,13 +1,16 @@
 module.exports = {
   apps: [{
     name: 'cmsftiaxesite',
-    script: 'server.js',
+    script: 'pnpm',
+    args: 'start',
     cwd: process.cwd(),
     instances: 1,
     exec_mode: 'fork',
     env: {
       NODE_ENV: 'production',
-      PORT: 3000
+      PORT: 3000,
+      NODE_TLS_REJECT_UNAUTHORIZED: '0',
+      NODE_OPTIONS: '--no-deprecation'
     },
     error_file: './logs/pm2-error.log',
     out_file: './logs/pm2-out.log',
