@@ -36,17 +36,13 @@ const mediaAccess: {
  * - Admins: can manually select tenant, but defaults to their tenant if not specified
  */
 const assignTenantHook: CollectionBeforeChangeHook = async ({ data, req, operation }) => {
-  // Only set tenant on create operation
+  // Only set tenant on create operation if not already set
   if (operation === 'create' && req.user && !data.tenant) {
-    // Admins can manually set tenant, so only auto-assign if not set
-    // Regular users always get their tenant assigned
-    if (!isAdmin(req.user) || !data.tenant) {
-      // Extract tenant ID from user (handles both string ID and object)
-      const userTenant = req.user.tenant
-      if (userTenant) {
-        const tenantId = typeof userTenant === 'object' ? userTenant.id : userTenant
-        data.tenant = tenantId
-      }
+    // Extract tenant ID from user (handles both string ID and object)
+    const userTenant = req.user.tenant
+    if (userTenant) {
+      const tenantId = typeof userTenant === 'object' ? userTenant.id : userTenant
+      data.tenant = tenantId
     }
   }
   return data
