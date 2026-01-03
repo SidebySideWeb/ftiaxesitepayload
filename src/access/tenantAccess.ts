@@ -30,9 +30,13 @@ export const tenantAccess: {
       }
     }
 
-    // No tenant assigned = no access
-    // But this should not happen for authenticated users
-    return false
+    // Public access: allow reading published content only
+    // Frontend needs to access published pages/homepages/posts
+    return {
+      status: {
+        equals: 'published',
+      },
+    }
   },
 
   create: ({ req: { user }, data }) => {

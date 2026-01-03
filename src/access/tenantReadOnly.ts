@@ -30,9 +30,9 @@ export const tenantReadOnly: {
       }
     }
 
-    // No tenant assigned = no access
-    // But this should not happen for authenticated users
-    return false
+    // Public access: allow reading all tenants (needed for frontend)
+    // Tenants are not sensitive data and need to be publicly readable
+    return true
   },
 
   create: ({ req: { user } }) => {
