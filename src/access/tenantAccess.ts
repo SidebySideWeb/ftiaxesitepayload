@@ -12,7 +12,7 @@ export const tenantAccess: {
   update: Access
   delete: Access
 } = {
-  read: ({ req: { user } }) => {
+  read: ({ req: { user } }): boolean | { tenant: { equals: string | number } } | { status: { equals: 'published' } } => {
     // Super admins see everything - MUST return true (not a query constraint)
     // This ensures collections are visible in admin UI
     if (isAdmin(user)) {
@@ -34,7 +34,7 @@ export const tenantAccess: {
     // Frontend needs to access published pages/homepages/posts
     return {
       status: {
-        equals: 'published',
+        equals: 'published' as const,
       },
     }
   },
