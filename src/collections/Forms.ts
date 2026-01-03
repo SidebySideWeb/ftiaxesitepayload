@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { tenantAccess } from '../access/tenantAccess'
+import { formAccess } from '../access/formAccess'
 import { validateUrl } from '../utils/blockValidation'
 
 export const Forms: CollectionConfig = {
@@ -8,7 +8,7 @@ export const Forms: CollectionConfig = {
     useAsTitle: 'name',
     defaultColumns: ['name', 'slug', 'tenant', 'createdAt'],
   },
-  access: tenantAccess,
+  access: formAccess,
   fields: [
     {
       name: 'tenant',
