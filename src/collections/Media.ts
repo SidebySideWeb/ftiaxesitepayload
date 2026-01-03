@@ -1,4 +1,4 @@
-import type { CollectionConfig, Access } from 'payload'
+import type { CollectionConfig, Access, CollectionBeforeChangeHook } from 'payload'
 import { tenantAccess } from '../access/tenantAccess'
 import { isAdmin } from '../access/isAdmin'
 
@@ -30,12 +30,37 @@ const mediaAccess: {
   delete: tenantAccess.delete,
 }
 
+/**
+ * Hook to automatically assign tenant when creating media
+ * - Regular users: automatically assigned to their tenant
+ * - Admins: can manually select tenant, but defaults to their tenant if not specified
+ */
+const assignTenantHook: CollectionBeforeChangeHook = async ({ data, req, operation }) => {
+  // Only set tenant on create operation
+  if (operation === 'create' && req.user && !data.tenant) {
+    // Admins can manually set tenant, so only auto-assign if not set
+    // Regular users always get their tenant assigned
+    if (!isAdmin(req.user) || !data.tenant) {
+      // Extract tenant ID from user (handles both string ID and object)
+      const userTenant = req.user.tenant
+      if (userTenant) {
+        const tenantId = typeof userTenant === 'object' ? userTenant.id : userTenant
+        data.tenant = tenantId
+      }
+    }
+  }
+  return data
+}
+
 export const Media: CollectionConfig = {
   slug: 'media',
   admin: {
     defaultColumns: ['alt', 'tenant', 'createdAt'],
   },
   access: mediaAccess,
+  hooks: {
+    beforeChange: [assignTenantHook],
+  },
   fields: [
     {
       name: 'tenant',
@@ -44,8 +69,7 @@ export const Media: CollectionConfig = {
       required: true,
       index: true,
       admin: {
-        description: 'The tenant this media belongs to. This cannot be changed after creation.',
-        readOnly: true,
+        description: 'The tenant this media belongs to. Automatically set based on your user account when creating. Admins can manually select a different tenant.',
         position: 'sidebar',
       },
     },
