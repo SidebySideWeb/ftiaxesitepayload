@@ -265,12 +265,47 @@ function hydrateBlock(block: any, mediaMapping: MediaMapping, isTopLevel: boolea
         hydrated[key] = value
       }
     } else if (Array.isArray(value)) {
-      // Process arrays (e.g., images[], programs[], newsItems[], paragraphs[])
-      if (key === 'paragraphs' && value.length > 0 && typeof value[0] === 'string') {
-        // Special handling for welcome block paragraphs array
-        hydrated[key] = value.map((paragraph: string) => ({
-          paragraph: textToLexical(paragraph),
-        }))
+      // Process arrays (e.g., images[], programs[], newsItems[])
+      // Note: paragraphs is now a single richText field, handled by the block's beforeValidate hook
+      if (key === 'paragraphs' && Array.isArray(value) && value.length > 0) {
+        // If it's an array of strings, convert to single Lexical document with multiple paragraphs
+        if (typeof value[0] === 'string') {
+          const paragraphs = value.filter((p) => typeof p === 'string' && p.trim())
+          if (paragraphs.length > 0) {
+            hydrated[key] = {
+              root: {
+                children: paragraphs.map((text) => ({
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: text.trim(),
+                      type: 'text',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  type: 'paragraph',
+                  version: 1,
+                })),
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                type: 'root',
+                version: 1,
+              },
+            }
+          } else {
+            hydrated[key] = createEmptyLexical()
+          }
+        } else {
+          // Array of objects - let the block's hook handle it
+          hydrated[key] = value
+        }
       } else {
         hydrated[key] = value.map((item) => {
           if (typeof item === 'object' && item !== null) {

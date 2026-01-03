@@ -25,6 +25,22 @@ export const kallitechniaImageGallery: Block = {
       },
     },
     {
+      name: 'title',
+      type: 'text',
+      defaultValue: '',
+      admin: {
+        description: 'Gallery section title',
+      },
+    },
+    {
+      name: 'subtitle',
+      type: 'text',
+      defaultValue: '',
+      admin: {
+        description: 'Gallery section subtitle',
+      },
+    },
+    {
       name: 'enableCaptions',
       type: 'checkbox',
       defaultValue: false,
@@ -46,6 +62,39 @@ export const kallitechniaImageGallery: Block = {
           relationTo: 'media',
           admin: {
             description: 'Gallery image. If not provided, this item will be skipped.',
+          },
+        },
+        {
+          name: 'title',
+          type: 'text',
+          defaultValue: '',
+          admin: {
+            description: 'Image title (shown on hover)',
+          },
+        },
+        {
+          name: 'description',
+          type: 'richText',
+          defaultValue: {
+            root: {
+              children: [],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              type: 'root',
+              version: 1,
+            },
+          },
+          admin: {
+            description: 'Image description (shown on hover, supports rich text)',
+          },
+        },
+        {
+          name: 'imageAlt',
+          type: 'text',
+          defaultValue: '',
+          admin: {
+            description: 'Alternative text for accessibility (falls back to title if not provided)',
           },
         },
         {

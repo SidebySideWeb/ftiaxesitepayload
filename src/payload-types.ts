@@ -241,31 +241,23 @@ export interface Page {
              */
             title?: string | null;
             /**
-             * Welcome paragraphs. Section will render even if empty.
+             * Welcome paragraphs content using rich text editor. You can add multiple paragraphs in the editor.
              */
-            paragraphs?:
-              | {
-                  /**
-                   * Paragraph content using rich text editor
-                   */
-                  paragraph?: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: any;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  } | null;
-                  id?: string | null;
-                }[]
-              | null;
+            paragraphs?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
             /**
              * Welcome section image. If not provided, section will render without image.
              */
@@ -333,6 +325,14 @@ export interface Page {
             __deprecated?: boolean | null;
             schemaVersion?: number | null;
             /**
+             * Gallery section title
+             */
+            title?: string | null;
+            /**
+             * Gallery section subtitle
+             */
+            subtitle?: string | null;
+            /**
              * Show captions below images
              */
             enableCaptions?: boolean | null;
@@ -345,6 +345,32 @@ export interface Page {
                    * Gallery image. If not provided, this item will be skipped.
                    */
                   image?: (number | null) | Media;
+                  /**
+                   * Image title (shown on hover)
+                   */
+                  title?: string | null;
+                  /**
+                   * Image description (shown on hover, supports rich text)
+                   */
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  /**
+                   * Alternative text for accessibility (falls back to title if not provided)
+                   */
+                  imageAlt?: string | null;
                   /**
                    * Optional caption for the image (max 200 characters)
                    */
@@ -868,7 +894,7 @@ export interface Page {
 export interface Media {
   id: number;
   /**
-   * The tenant this media belongs to. This cannot be changed after creation.
+   * The tenant this media belongs to. Automatically set based on your user account when creating. Admins can manually select a different tenant.
    */
   tenant: number | Tenant;
   /**
@@ -1008,31 +1034,23 @@ export interface Homepage {
              */
             title?: string | null;
             /**
-             * Welcome paragraphs. Section will render even if empty.
+             * Welcome paragraphs content using rich text editor. You can add multiple paragraphs in the editor.
              */
-            paragraphs?:
-              | {
-                  /**
-                   * Paragraph content using rich text editor
-                   */
-                  paragraph?: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: any;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  } | null;
-                  id?: string | null;
-                }[]
-              | null;
+            paragraphs?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
             /**
              * Welcome section image. If not provided, section will render without image.
              */
@@ -1100,6 +1118,14 @@ export interface Homepage {
             __deprecated?: boolean | null;
             schemaVersion?: number | null;
             /**
+             * Gallery section title
+             */
+            title?: string | null;
+            /**
+             * Gallery section subtitle
+             */
+            subtitle?: string | null;
+            /**
              * Show captions below images
              */
             enableCaptions?: boolean | null;
@@ -1112,6 +1138,32 @@ export interface Homepage {
                    * Gallery image. If not provided, this item will be skipped.
                    */
                   image?: (number | null) | Media;
+                  /**
+                   * Image title (shown on hover)
+                   */
+                  title?: string | null;
+                  /**
+                   * Image description (shown on hover, supports rich text)
+                   */
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  /**
+                   * Alternative text for accessibility (falls back to title if not provided)
+                   */
+                  imageAlt?: string | null;
                   /**
                    * Optional caption for the image (max 200 characters)
                    */
@@ -2019,12 +2071,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              paragraphs?:
-                | T
-                | {
-                    paragraph?: T;
-                    id?: T;
-                  };
+              paragraphs?: T;
               image?: T;
               id?: T;
               blockName?: T;
@@ -2052,11 +2099,16 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               __deprecated?: T;
               schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
               enableCaptions?: T;
               images?:
                 | T
                 | {
                     image?: T;
+                    title?: T;
+                    description?: T;
+                    imageAlt?: T;
                     caption?: T;
                     id?: T;
                   };
@@ -2274,12 +2326,7 @@ export interface HomepagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              paragraphs?:
-                | T
-                | {
-                    paragraph?: T;
-                    id?: T;
-                  };
+              paragraphs?: T;
               image?: T;
               id?: T;
               blockName?: T;
@@ -2307,11 +2354,16 @@ export interface HomepagesSelect<T extends boolean = true> {
           | {
               __deprecated?: T;
               schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
               enableCaptions?: T;
               images?:
                 | T
                 | {
                     image?: T;
+                    title?: T;
+                    description?: T;
+                    imageAlt?: T;
                     caption?: T;
                     id?: T;
                   };
