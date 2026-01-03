@@ -60,9 +60,20 @@ export async function POST(request: NextRequest) {
       const value = data[field.name]
 
       // Check required
-      if (field.required && (!value || value === '')) {
-        validationErrors[field.name] = `${field.label} is required`
-        continue
+      if (field.required) {
+        if (field.type === 'checkbox') {
+          // For checkboxes, value must be true
+          if (value !== true) {
+            validationErrors[field.name] = `${field.label} is required`
+            continue
+          }
+        } else {
+          // For other fields, check if empty
+          if (!value || value === '') {
+            validationErrors[field.name] = `${field.label} is required`
+            continue
+          }
+        }
       }
 
       // Type-specific validation
@@ -102,18 +113,29 @@ export async function POST(request: NextRequest) {
     const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || ''
     const userAgent = request.headers.get('user-agent') || ''
 
-    // Create submission
-    const submission = await payload.create({
-      collection: 'form-submissions',
-      data: {
-        form: form.id,
-        payload: data,
-        metadata: {
-          ip: ip.split(',')[0].trim(), // Get first IP if multiple
-          userAgent,
+    // Create submission (tenant will be auto-assigned via hook)
+    let submission
+    try {
+      submission = await payload.create({
+        collection: 'form-submissions',
+        data: {
+          form: form.id,
+          tenant: form.tenant, // Set tenant explicitly (hook will also set it)
+          payload: data,
+          metadata: {
+            ip: ip.split(',')[0].trim(), // Get first IP if multiple
+            userAgent,
+          },
         },
-      },
-    })
+      })
+      console.log('[FormSubmit] Submission created:', submission.id, 'for tenant:', submission.tenant)
+    } catch (createError) {
+      console.error('[FormSubmit] Failed to create submission:', createError)
+      return NextResponse.json(
+        { error: 'Failed to save submission', details: createError instanceof Error ? createError.message : 'Unknown error' },
+        { status: 500 },
+      )
+    }
 
     // Return success response
     const response: any = {
