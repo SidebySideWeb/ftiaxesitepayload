@@ -55,3 +55,7 @@ key.pub
 *.key
 *.pem
 *.pub
+
+# Client-specific documentation
+CLIENT_MANUAL.md
+CLIENT_MANUAL_EN.md

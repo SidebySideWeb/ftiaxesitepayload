@@ -1,6 +1,15 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, CollectionBeforeChangeHook } from 'payload'
 import { tenantAccess } from '../access/tenantAccess'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+
+const assignTenantHook: CollectionBeforeChangeHook = async ({ data, req, operation }) => {
+  if (operation === 'create' && req.user?.tenant && !data.tenant) {
+    // Assign tenant from logged-in user
+    const tenantId = typeof req.user.tenant === 'object' ? req.user.tenant.id : req.user.tenant
+    data.tenant = tenantId
+  }
+  return data
+}
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -12,6 +21,9 @@ export const Posts: CollectionConfig = {
   versions: {
     drafts: true,
     maxPerDoc: 15,
+  },
+  hooks: {
+    beforeChange: [assignTenantHook],
   },
   fields: [
     {
