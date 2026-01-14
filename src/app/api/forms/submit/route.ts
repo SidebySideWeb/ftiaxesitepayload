@@ -116,7 +116,9 @@ export async function POST(request: NextRequest) {
     // Create submission (tenant will be auto-assigned via beforeChange hook)
     let submission
     try {
-      submission = await payload.create({
+      // Type assertion needed: generated types incorrectly expect 'draft' property
+      // FormSubmissions collection doesn't have drafts enabled, so this is safe
+      submission = await (payload.create as any)({
         collection: 'form-submissions',
         data: {
           form: form.id,
