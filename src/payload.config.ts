@@ -17,6 +17,7 @@ import { Footers } from './collections/Footers'
 import { Forms } from './collections/Forms'
 import { FormSubmissions } from './collections/FormSubmissions'
 import { Posts } from './collections/Posts'
+import { CaseStudies } from './collections/CaseStudies'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -35,6 +36,7 @@ console.log('[Payload Config] Collections:', [
   'Forms',
   'FormSubmissions',
   'Posts',
+  'CaseStudies',
 ].join(', '))
 
 export default buildConfig({
@@ -56,6 +58,7 @@ export default buildConfig({
     Forms,
     FormSubmissions,
     Posts,
+    CaseStudies,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

@@ -78,6 +78,7 @@ export interface Config {
     forms: Form;
     'form-submissions': FormSubmission;
     posts: Post;
+    'case-studies': CaseStudy;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -96,6 +97,7 @@ export interface Config {
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -2287,6 +2289,49 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies".
+ */
+export interface CaseStudy {
+  id: number;
+  /**
+   * The tenant this case study belongs to. This cannot be changed after creation.
+   */
+  tenant: number | Tenant;
+  /**
+   * Case study title (required, max 200 characters)
+   */
+  title: string;
+  /**
+   * The goal or objective of this project
+   */
+  goal: string;
+  /**
+   * What was done in this project
+   */
+  what: string;
+  /**
+   * The result or outcome of this project
+   */
+  result: string;
+  /**
+   * Project images (1-6 images)
+   */
+  images?:
+    | {
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Publication status. Drafts are hidden from frontend.
+   */
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -2352,6 +2397,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'case-studies';
+        value: number | CaseStudy;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -3222,6 +3271,27 @@ export interface PostsSelect<T extends boolean = true> {
         title?: T;
         description?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies_select".
+ */
+export interface CaseStudiesSelect<T extends boolean = true> {
+  tenant?: T;
+  title?: T;
+  goal?: T;
+  what?: T;
+  result?: T;
+  images?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
