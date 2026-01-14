@@ -1,5 +1,6 @@
 import { kallitechniaBlocks } from './tenants/kallitechnia'
 import { ftiaxesiteBlocks } from './tenants/ftiaxesite'
+import { alAnastasiouBlocks } from './tenants/al-anastasiou'
 import { getTenantBlocks } from './utils/tenantBlocksLoader'
 
 /**
@@ -17,10 +18,10 @@ import { getTenantBlocks } from './utils/tenantBlocksLoader'
  * 6. Add tenant code to TENANTS array
  */
 
-export const TENANTS = ['kallitechnia', 'ftiaxesite'] as const
+export const TENANTS = ['kallitechnia', 'ftiaxesite', 'al-anastasiou'] as const
 
 // Aggregate all tenant blocks (for Payload config)
-export const tenantBlocks = [...kallitechniaBlocks, ...ftiaxesiteBlocks]
+export const tenantBlocks = [...kallitechniaBlocks, ...ftiaxesiteBlocks, ...alAnastasiouBlocks]
 
 /**
  * Gets blocks for a specific tenant

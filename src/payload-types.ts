@@ -860,6 +860,201 @@ export interface Page {
             blockName?: string | null;
             blockType: 'kallitechnia.genericSection';
           }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * Main headline for the hero section (max 120 characters)
+             */
+            title?: string | null;
+            /**
+             * Supporting text below the title (max 240 characters)
+             */
+            subtitle?: string | null;
+            /**
+             * Additional description text (optional)
+             */
+            description?: string | null;
+            /**
+             * Background image for the hero section. If not provided, a gradient will be used.
+             */
+            backgroundImage?: (number | null) | Media;
+            /**
+             * Enable primary call-to-action button
+             */
+            hasPrimaryCTA?: boolean | null;
+            /**
+             * Primary call-to-action button text (max 50 characters)
+             */
+            primaryCTALabel?: string | null;
+            /**
+             * Primary call-to-action button URL. Must start with / (internal), http://, or https://
+             */
+            primaryCTAUrl?: string | null;
+            /**
+             * Enable secondary call-to-action button
+             */
+            hasSecondaryCTA?: boolean | null;
+            /**
+             * Secondary call-to-action button text (max 50 characters)
+             */
+            secondaryCTALabel?: string | null;
+            /**
+             * Secondary call-to-action button URL. Must start with / (internal), http://, or https://
+             */
+            secondaryCTAUrl?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.hero';
+          }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * Optional section title
+             */
+            title?: string | null;
+            /**
+             * Optional section subtitle
+             */
+            subtitle?: string | null;
+            /**
+             * Rich text content using Lexical editor. Start typing to add content.
+             */
+            content?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.richText';
+          }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * Gallery section title
+             */
+            title?: string | null;
+            /**
+             * Gallery section subtitle
+             */
+            subtitle?: string | null;
+            /**
+             * Show captions below images
+             */
+            enableCaptions?: boolean | null;
+            /**
+             * Add images to the gallery. Gallery will be hidden if empty.
+             */
+            images?:
+              | {
+                  /**
+                   * Gallery image. If not provided, this item will be skipped.
+                   */
+                  image?: (number | null) | Media;
+                  /**
+                   * Image title (shown on hover)
+                   */
+                  title?: string | null;
+                  /**
+                   * Image description (shown on hover, supports rich text)
+                   */
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  /**
+                   * Alternative text for accessibility (falls back to title if not provided)
+                   */
+                  imageAlt?: string | null;
+                  /**
+                   * Optional caption for the image (max 200 characters)
+                   */
+                  caption?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.imageGallery';
+          }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * CTA section title (max 100 characters)
+             */
+            title?: string | null;
+            /**
+             * CTA section description using rich text editor
+             */
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            /**
+             * Button text (max 50 characters)
+             */
+            buttonLabel?: string | null;
+            /**
+             * Button destination URL. Must start with / (internal), http://, or https://
+             */
+            buttonUrl?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.cta';
+          }
+        | {
+            /**
+             * Raw component data. This is a fallback block for unknown component types.
+             */
+            rawData?:
+              | {
+                  [k: string]: unknown;
+                }
+              | unknown[]
+              | string
+              | number
+              | boolean
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.genericSection';
+          }
       )[]
     | null;
   /**
@@ -1653,6 +1848,201 @@ export interface Homepage {
             blockName?: string | null;
             blockType: 'kallitechnia.genericSection';
           }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * Main headline for the hero section (max 120 characters)
+             */
+            title?: string | null;
+            /**
+             * Supporting text below the title (max 240 characters)
+             */
+            subtitle?: string | null;
+            /**
+             * Additional description text (optional)
+             */
+            description?: string | null;
+            /**
+             * Background image for the hero section. If not provided, a gradient will be used.
+             */
+            backgroundImage?: (number | null) | Media;
+            /**
+             * Enable primary call-to-action button
+             */
+            hasPrimaryCTA?: boolean | null;
+            /**
+             * Primary call-to-action button text (max 50 characters)
+             */
+            primaryCTALabel?: string | null;
+            /**
+             * Primary call-to-action button URL. Must start with / (internal), http://, or https://
+             */
+            primaryCTAUrl?: string | null;
+            /**
+             * Enable secondary call-to-action button
+             */
+            hasSecondaryCTA?: boolean | null;
+            /**
+             * Secondary call-to-action button text (max 50 characters)
+             */
+            secondaryCTALabel?: string | null;
+            /**
+             * Secondary call-to-action button URL. Must start with / (internal), http://, or https://
+             */
+            secondaryCTAUrl?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.hero';
+          }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * Optional section title
+             */
+            title?: string | null;
+            /**
+             * Optional section subtitle
+             */
+            subtitle?: string | null;
+            /**
+             * Rich text content using Lexical editor. Start typing to add content.
+             */
+            content?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.richText';
+          }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * Gallery section title
+             */
+            title?: string | null;
+            /**
+             * Gallery section subtitle
+             */
+            subtitle?: string | null;
+            /**
+             * Show captions below images
+             */
+            enableCaptions?: boolean | null;
+            /**
+             * Add images to the gallery. Gallery will be hidden if empty.
+             */
+            images?:
+              | {
+                  /**
+                   * Gallery image. If not provided, this item will be skipped.
+                   */
+                  image?: (number | null) | Media;
+                  /**
+                   * Image title (shown on hover)
+                   */
+                  title?: string | null;
+                  /**
+                   * Image description (shown on hover, supports rich text)
+                   */
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  /**
+                   * Alternative text for accessibility (falls back to title if not provided)
+                   */
+                  imageAlt?: string | null;
+                  /**
+                   * Optional caption for the image (max 200 characters)
+                   */
+                  caption?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.imageGallery';
+          }
+        | {
+            __deprecated?: boolean | null;
+            schemaVersion?: number | null;
+            /**
+             * CTA section title (max 100 characters)
+             */
+            title?: string | null;
+            /**
+             * CTA section description using rich text editor
+             */
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            /**
+             * Button text (max 50 characters)
+             */
+            buttonLabel?: string | null;
+            /**
+             * Button destination URL. Must start with / (internal), http://, or https://
+             */
+            buttonUrl?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.cta';
+          }
+        | {
+            /**
+             * Raw component data. This is a fallback block for unknown component types.
+             */
+            rawData?:
+              | {
+                  [k: string]: unknown;
+                }
+              | unknown[]
+              | string
+              | number
+              | boolean
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'al-anastasiou.genericSection';
+          }
       )[]
     | null;
   /**
@@ -1797,6 +2187,10 @@ export interface FormSubmission {
    * The form this submission belongs to
    */
   form: number | Form;
+  /**
+   * The tenant this submission belongs to (auto-set from form)
+   */
+  tenant: number | Tenant;
   /**
    * Form submission data
    */
@@ -2286,6 +2680,75 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'al-anastasiou.hero'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              backgroundImage?: T;
+              hasPrimaryCTA?: T;
+              primaryCTALabel?: T;
+              primaryCTAUrl?: T;
+              hasSecondaryCTA?: T;
+              secondaryCTALabel?: T;
+              secondaryCTAUrl?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.richText'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
+              content?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.imageGallery'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
+              enableCaptions?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    imageAlt?: T;
+                    caption?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.cta'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              description?: T;
+              buttonLabel?: T;
+              buttonUrl?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.genericSection'?:
+          | T
+          | {
+              rawData?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   schemaVersion?: T;
   status?: T;
@@ -2541,6 +3004,75 @@ export interface HomepagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'al-anastasiou.hero'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              backgroundImage?: T;
+              hasPrimaryCTA?: T;
+              primaryCTALabel?: T;
+              primaryCTAUrl?: T;
+              hasSecondaryCTA?: T;
+              secondaryCTALabel?: T;
+              secondaryCTAUrl?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.richText'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
+              content?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.imageGallery'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              subtitle?: T;
+              enableCaptions?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    imageAlt?: T;
+                    caption?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.cta'?:
+          | T
+          | {
+              __deprecated?: T;
+              schemaVersion?: T;
+              title?: T;
+              description?: T;
+              buttonLabel?: T;
+              buttonUrl?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'al-anastasiou.genericSection'?:
+          | T
+          | {
+              rawData?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   schemaVersion?: T;
   status?: T;
@@ -2660,6 +3192,7 @@ export interface FormsSelect<T extends boolean = true> {
  */
 export interface FormSubmissionsSelect<T extends boolean = true> {
   form?: T;
+  tenant?: T;
   payload?: T;
   metadata?:
     | T

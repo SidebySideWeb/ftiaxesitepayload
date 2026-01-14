@@ -1,0 +1,24 @@
+{
+  "navigationMenu": [
+    {
+      "href": "/",
+      "label": "Αρχική"
+    },
+    {
+      "href": "/services",
+      "label": "Υπηρεσίες"
+    },
+    {
+      "href": "/exoikonomo",
+      "label": "Εξοικονομώ"
+    },
+    {
+      "href": "/case-studies",
+      "label": "Έργα"
+    },
+    {
+      "href": "/contact",
+      "label": "Επικοινωνία"
+    }
+  ]
+}

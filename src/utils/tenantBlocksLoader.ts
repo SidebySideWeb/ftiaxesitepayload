@@ -6,6 +6,7 @@
 
 import type { Block } from 'payload'
 import { kallitechniaBlocks } from '../tenants/kallitechnia'
+import { alAnastasiouBlocks } from '../tenants/al-anastasiou'
 
 /**
  * Gets blocks for a specific tenant
@@ -17,6 +18,8 @@ export function getTenantBlocks(tenantCode: string): Block[] {
     case 'ftiaxesite':
       // Return empty array for now - will be populated when ftiaxesite blocks are created
       return []
+    case 'al-anastasiou':
+      return alAnastasiouBlocks
     default:
       console.warn(`[TenantBlocksLoader] Unknown tenant code: ${tenantCode}`)
       return []
@@ -27,7 +30,7 @@ export function getTenantBlocks(tenantCode: string): Block[] {
  * Gets all tenant codes that have blocks defined
  */
 export function getTenantCodesWithBlocks(): string[] {
-  return ['kallitechnia', 'ftiaxesite']
+  return ['kallitechnia', 'ftiaxesite', 'al-anastasiou']
 }
 
 /**

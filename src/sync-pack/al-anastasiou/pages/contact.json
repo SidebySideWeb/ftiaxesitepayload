@@ -1,0 +1,10 @@
+{
+  "title": "Contact",
+  "slug": "contact",
+  "blocks": [
+    {
+      "blockType": "al-anastasiou.hero",
+      "title": "ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ"
+    }
+  ]
+}

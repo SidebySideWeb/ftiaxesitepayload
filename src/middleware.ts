@@ -13,6 +13,8 @@ export function middleware(request: NextRequest) {
     const allowedOrigins = [
       'https://www.kallitechnia.gr',
       'https://kallitechnia.gr',
+      'https://www.al-anastasiou.gr',
+      'https://al-anastasiou.gr',
       'http://localhost:3000',
       'http://localhost:3001',
       ...envOrigins,

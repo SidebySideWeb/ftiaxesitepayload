@@ -1,0 +1,10 @@
+{
+  "title": "Services",
+  "slug": "services",
+  "blocks": [
+    {
+      "blockType": "al-anastasiou.hero",
+      "title": "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ"
+    }
+  ]
+}

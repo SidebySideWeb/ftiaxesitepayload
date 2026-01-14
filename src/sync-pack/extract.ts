@@ -173,9 +173,35 @@ class SyncPackExtractor {
     console.log(`✓ Generated site.json`)
   }
 
+  /**
+   * Finds navigation component file, trying multiple common paths and names
+   */
+  private async findNavigationFile(frontendRoot: string): Promise<string> {
+    const possiblePaths = [
+      'src/components/navigation.tsx',
+      'src/components/Navbar.tsx',
+      'components/navigation.tsx',
+      'components/Navbar.tsx',
+      'src/components/Navigation.tsx',
+      'components/Navigation.tsx',
+    ]
+
+    for (const relPath of possiblePaths) {
+      const fullPath = path.join(frontendRoot, relPath)
+      try {
+        await fs.access(fullPath)
+        return fullPath
+      } catch {
+        // Continue to next path
+      }
+    }
+
+    throw new Error(`Navigation component not found. Tried: ${possiblePaths.join(', ')}`)
+  }
+
   private async extractHeader(frontendRoot: string, outputRoot: string): Promise<void> {
     try {
-      const navPath = path.join(frontendRoot, 'src/components/navigation.tsx')
+      const navPath = await this.findNavigationFile(frontendRoot)
       const navContent = await fs.readFile(navPath, 'utf-8')
       const navData = this.parseNavigationComponent(navContent)
 
@@ -206,9 +232,33 @@ class SyncPackExtractor {
     }
   }
 
+  /**
+   * Finds footer component file, trying multiple common paths
+   */
+  private async findFooterFile(frontendRoot: string): Promise<string> {
+    const possiblePaths = [
+      'src/components/footer.tsx',
+      'components/footer.tsx',
+      'src/components/Footer.tsx',
+      'components/Footer.tsx',
+    ]
+
+    for (const relPath of possiblePaths) {
+      const fullPath = path.join(frontendRoot, relPath)
+      try {
+        await fs.access(fullPath)
+        return fullPath
+      } catch {
+        // Continue to next path
+      }
+    }
+
+    throw new Error(`Footer component not found. Tried: ${possiblePaths.join(', ')}`)
+  }
+
   private async extractFooter(frontendRoot: string, outputRoot: string): Promise<void> {
     try {
-      const footerPath = path.join(frontendRoot, 'src/components/footer.tsx')
+      const footerPath = await this.findFooterFile(frontendRoot)
       const footerContent = await fs.readFile(footerPath, 'utf-8')
       const footerData = this.parseFooterComponent(footerContent)
 
@@ -243,7 +293,7 @@ class SyncPackExtractor {
 
   private async extractMenu(frontendRoot: string, outputRoot: string): Promise<void> {
     try {
-      const navPath = path.join(frontendRoot, 'src/components/navigation.tsx')
+      const navPath = await this.findNavigationFile(frontendRoot)
       const navContent = await fs.readFile(navPath, 'utf-8')
       const navData = this.parseNavigationComponent(navContent)
 
@@ -274,8 +324,30 @@ class SyncPackExtractor {
     }
   }
 
+  /**
+   * Finds app directory, trying both src/app and app
+   */
+  private async findAppDir(frontendRoot: string): Promise<string> {
+    const possiblePaths = [
+      'src/app',
+      'app',
+    ]
+
+    for (const relPath of possiblePaths) {
+      const fullPath = path.join(frontendRoot, relPath)
+      try {
+        await fs.access(fullPath)
+        return fullPath
+      } catch {
+        // Continue to next path
+      }
+    }
+
+    throw new Error(`App directory not found. Tried: ${possiblePaths.join(', ')}`)
+  }
+
   private async extractPages(frontendRoot: string, outputRoot: string): Promise<void> {
-    const appDir = path.join(frontendRoot, 'src/app')
+    const appDir = await this.findAppDir(frontendRoot)
     const pagesDir = path.join(outputRoot, 'pages')
 
     await fs.mkdir(pagesDir, { recursive: true })
@@ -390,6 +462,16 @@ class SyncPackExtractor {
       }
     }
 
+    // If no sections array found, try to extract from inline JSX sections
+    if (blocks.length === 0) {
+      try {
+        const jsxSections = this.extractSectionsFromJSX(content)
+        blocks.push(...jsxSections)
+      } catch (error) {
+        this.warnings.push(`Failed to parse JSX sections in ${pageName}: ${error}`)
+      }
+    }
+
     // Extract title from PageHeaderGradient if present
     let title = this.capitalize(pageName)
     const pageHeaderMatch = content.match(/<PageHeaderGradient\s+title=["']([^"']+)["']/i)
@@ -402,6 +484,198 @@ class SyncPackExtractor {
       slug: pageName,
       blocks,
     }
+  }
+
+  /**
+   * Extracts blocks from inline JSX sections
+   * Looks for <section> elements and converts them to blocks
+   */
+  private extractSectionsFromJSX(content: string): Block[] {
+    const blocks: Block[] = []
+    
+    // Find the return statement and extract JSX
+    const returnMatch = content.match(/return\s*\(([\s\S]*?)\)\s*;?\s*}/m)
+    if (!returnMatch) {
+      return blocks
+    }
+
+    const jsxContent = returnMatch[1]
+    
+    // Extract sections - look for <section> tags with comments that indicate section type
+    // Pattern: {/* Hero Section */} <section>...</section>
+    const sectionPattern = /\/\*\s*([^*]+?)\s*Section\s*\*\/[\s\S]*?<section[^>]*>([\s\S]*?)<\/section>/gi
+    let sectionMatch
+
+    while ((sectionMatch = sectionPattern.exec(jsxContent)) !== null) {
+      const sectionType = sectionMatch[1].trim().toLowerCase()
+      const sectionContent = sectionMatch[2]
+
+      // Map section types to block types
+      let blockType = `${this.options.tenant}.genericSection`
+      
+      if (sectionType.includes('hero')) {
+        blockType = `${this.options.tenant}.hero`
+      } else if (sectionType.includes('about') || sectionType.includes('text') || sectionType.includes('rich')) {
+        blockType = `${this.options.tenant}.richText`
+      } else if (sectionType.includes('gallery') || sectionType.includes('image')) {
+        blockType = `${this.options.tenant}.imageGallery`
+      } else if (sectionType.includes('cta') || sectionType.includes('call')) {
+        blockType = `${this.options.tenant}.cta`
+      }
+
+      // Extract content from the section
+      const block: any = {
+        blockType,
+      }
+
+      // Extract title (h1, h2, h3)
+      const titleMatch = sectionContent.match(/<h[1-3][^>]*>([\s\S]*?)<\/h[1-3]>/i)
+      if (titleMatch) {
+        block.title = this.stripHtmlTags(titleMatch[1]).trim()
+      }
+
+      // Extract subtitle (h2, h3, or first paragraph)
+      const subtitleMatch = sectionContent.match(/<h[2-3][^>]*>([\s\S]*?)<\/h[2-3]>/i)
+      if (subtitleMatch && !titleMatch) {
+        block.subtitle = this.stripHtmlTags(subtitleMatch[1]).trim()
+      } else {
+        const pMatch = sectionContent.match(/<p[^>]*>([\s\S]*?)<\/p>/i)
+        if (pMatch) {
+          block.subtitle = this.stripHtmlTags(pMatch[1]).trim()
+        }
+      }
+
+      // Extract background image
+      const imgMatch = sectionContent.match(/<img[^>]+src=["']([^"']+)["']/i)
+      if (imgMatch) {
+        block.backgroundImage = imgMatch[1]
+      }
+
+      // Extract CTA buttons
+      const linkMatches = sectionContent.matchAll(/<Link[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/Link>/gi)
+      const links: Array<{ href: string; label: string }> = []
+      for (const linkMatch of linkMatches) {
+        links.push({
+          href: linkMatch[1],
+          label: this.stripHtmlTags(linkMatch[2]).trim(),
+        })
+      }
+      
+      if (links.length > 0) {
+        block.hasPrimaryCTA = true
+        block.primaryCTALabel = links[0].label
+        block.primaryCTAUrl = links[0].href
+        
+        if (links.length > 1) {
+          block.hasSecondaryCTA = true
+          block.secondaryCTALabel = links[1].label
+          block.secondaryCTAUrl = links[1].href
+        }
+      }
+
+      // Extract description/paragraphs
+      const paragraphs = sectionContent.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)
+      const descriptions: string[] = []
+      for (const pMatch of paragraphs) {
+        const text = this.stripHtmlTags(pMatch[1]).trim()
+        if (text && text.length > 10) {
+          descriptions.push(text)
+        }
+      }
+      
+      if (descriptions.length > 0) {
+        block.description = descriptions.join('\n\n')
+      }
+
+      blocks.push(block)
+    }
+
+    // If no commented sections found, try to extract all <section> tags
+    if (blocks.length === 0) {
+      const allSectionsPattern = /<section[^>]*>([\s\S]*?)<\/section>/gi
+      let allSectionMatch
+      let sectionIndex = 0
+
+      while ((allSectionMatch = allSectionsPattern.exec(jsxContent)) !== null) {
+        const sectionContent = allSectionMatch[1]
+        
+        // Determine block type based on content
+        let blockType = `${this.options.tenant}.genericSection`
+        
+        // Check for hero indicators
+        if (sectionContent.includes('h-[90vh]') || sectionContent.includes('hero') || sectionIndex === 0) {
+          blockType = `${this.options.tenant}.hero`
+        } else if (sectionContent.includes('bg-white') || sectionContent.includes('py-24')) {
+          blockType = `${this.options.tenant}.richText`
+        } else if (sectionContent.includes('bg-black') || sectionContent.includes('bg-zinc')) {
+          blockType = `${this.options.tenant}.cta`
+        }
+
+        const block: any = {
+          blockType,
+        }
+
+        // Extract title
+        const titleMatch = sectionContent.match(/<h[1-3][^>]*>([\s\S]*?)<\/h[1-3]>/i)
+        if (titleMatch) {
+          block.title = this.stripHtmlTags(titleMatch[1]).trim()
+        }
+
+        // Extract subtitle
+        const subtitleMatch = sectionContent.match(/<h[2-3][^>]*>([\s\S]*?)<\/h[2-3]>/i)
+        if (subtitleMatch) {
+          block.subtitle = this.stripHtmlTags(subtitleMatch[1]).trim()
+        }
+
+        // Extract background image
+        const imgMatch = sectionContent.match(/<img[^>]+src=["']([^"']+)["']/i)
+        if (imgMatch) {
+          block.backgroundImage = imgMatch[1]
+        }
+
+        // Extract CTA buttons
+        const linkMatches = sectionContent.matchAll(/<Link[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/Link>/gi)
+        const links: Array<{ href: string; label: string }> = []
+        for (const linkMatch of linkMatches) {
+          links.push({
+            href: linkMatch[1],
+            label: this.stripHtmlTags(linkMatch[2]).trim(),
+          })
+        }
+        
+        if (links.length > 0) {
+          block.hasPrimaryCTA = true
+          block.primaryCTALabel = links[0].label
+          block.primaryCTAUrl = links[0].href
+          
+          if (links.length > 1) {
+            block.hasSecondaryCTA = true
+            block.secondaryCTALabel = links[1].label
+            block.secondaryCTAUrl = links[1].href
+          }
+        }
+
+        blocks.push(block)
+        sectionIndex++
+      }
+    }
+
+    return blocks
+  }
+
+  /**
+   * Strips HTML tags from a string
+   */
+  private stripHtmlTags(html: string): string {
+    return html
+      .replace(/<[^>]+>/g, '') // Remove HTML tags
+      .replace(/&nbsp;/g, ' ') // Replace &nbsp; with space
+      .replace(/&amp;/g, '&') // Replace &amp; with &
+      .replace(/&lt;/g, '<') // Replace &lt; with <
+      .replace(/&gt;/g, '>') // Replace &gt; with >
+      .replace(/&quot;/g, '"') // Replace &quot; with "
+      .replace(/\s+/g, ' ') // Normalize whitespace
+      .trim()
   }
 
   private extractArrayCode(content: string, startPos: number): string | null {
@@ -660,18 +934,41 @@ class SyncPackExtractor {
       result.logoAlt = logoAltMatch[1]
     }
 
-    // Extract navigation items from safeItems array
-    const itemsMatch = content.match(/const\s+safeItems\s*=\s*.*?\[([\s\S]*?)\]/m)
-    if (itemsMatch) {
-      const itemsCode = itemsMatch[1]
-      const itemRegex = /\{\s*href:\s*['"]([^'"]+)['"],\s*label:\s*['"]([^'"]+)['"]\s*\}/g
-      let itemMatch
+    // Extract navigation items from various array names (safeItems, navLinks, navigationLinks, etc.)
+    const itemsPatterns = [
+      /const\s+(?:safeItems|navLinks|navigationLinks|links|menuItems)\s*=\s*\[([\s\S]*?)\];/m,
+      /const\s+(?:safeItems|navLinks|navigationLinks|links|menuItems)\s*=\s*\[([\s\S]*?)\]/m,
+    ]
 
-      while ((itemMatch = itemRegex.exec(itemsCode)) !== null) {
-        result.items.push({
-          href: itemMatch[1],
-          label: itemMatch[2],
-        })
+    for (const pattern of itemsPatterns) {
+      const itemsMatch = content.match(pattern)
+      if (itemsMatch) {
+        const itemsCode = itemsMatch[1]
+        
+        // Match both formats:
+        // { href: "...", label: "..." } 
+        // { name: "...", path: "..." }
+        // Order doesn't matter
+        const itemRegex = /\{\s*(?:name|label):\s*['"]([^'"]+)['"],\s*(?:path|href):\s*['"]([^'"]+)['"]\s*\}|\{\s*(?:path|href):\s*['"]([^'"]+)['"],\s*(?:name|label):\s*['"]([^'"]+)['"]\s*\}/g
+        let itemMatch
+
+        while ((itemMatch = itemRegex.exec(itemsCode)) !== null) {
+          // Handle both orderings: name/path or path/name
+          const label = itemMatch[1] || itemMatch[4]
+          const href = itemMatch[2] || itemMatch[3]
+          
+          if (label && href) {
+            result.items.push({
+              href: href,
+              label: label,
+            })
+          }
+        }
+        
+        // If we found items, break (don't try other patterns)
+        if (result.items.length > 0) {
+          break
+        }
       }
     }
 
