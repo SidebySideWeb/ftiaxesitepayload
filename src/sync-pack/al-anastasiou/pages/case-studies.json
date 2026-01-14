@@ -4,7 +4,133 @@
   "blocks": [
     {
       "blockType": "al-anastasiou.hero",
-      "title": "PROJECTS & CASE STUDIES"
+      "title": "PROJECTS & CASE STUDIES",
+      "subtitle": "ΔΕΙΓΜΑΤΑ ΤΗΣ ΔΟΥΛΕΙΑΣ ΜΑΣ"
+    },
+    {
+      "blockType": "al-anastasiou.imageGallery",
+      "title": "Case Studies",
+      "images": [
+        {
+          "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop",
+          "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1000&auto=format&fit=crop",
+          "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1000&auto=format&fit=crop",
+          "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
+          "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop",
+          "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+          "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα"
+        }
+      ]
+    },
+    {
+      "blockType": "al-anastasiou.hero",
+      "title": "PROJECTS & CASE STUDIES",
+      "subtitle": "ΔΕΙΓΜΑΤΑ ΤΗΣ ΔΟΥΛΕΙΑΣ ΜΑΣ"
+    },
+    {
+      "blockType": "al-anastasiou.imageGallery",
+      "title": "Case Studies",
+      "images": [
+        {
+          "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop",
+          "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1000&auto=format&fit=crop",
+          "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1000&auto=format&fit=crop",
+          "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
+          "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop",
+          "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+          "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα"
+        }
+      ]
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop",
+      "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1000&auto=format&fit=crop",
+      "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1000&auto=format&fit=crop",
+      "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
+      "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop",
+      "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+      "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop",
+      "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1000&auto=format&fit=crop",
+      "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1000&auto=format&fit=crop",
+      "title": "Ενεργειακή Αναβάθμιση Μονοκατοικίας – Χαλκίδα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
+      "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop",
+      "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+      "title": "Custom Σιδηροκατασκευή & Κουφώματα σε Κατάστημα – Αθήνα",
+      "blockType": "al-anastasiou.genericSection"
     }
   ]
 }

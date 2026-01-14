@@ -5,22 +5,66 @@
     {
       "blockType": "al-anastasiou.hero",
       "title": "ΚΟΥΦΩΜΑΤΑ ΑΛΟΥΜΙΝΙΟΥ & ΕΝΕΡΓΕΙΑΚΗ ΑΝΑΒΑΘΜΙΣΗ",
-      "subtitle": "Η AL. Anastasiou δραστηριοποιείται στον χώρο των κατασκευών και των αλουμινοκατασκευών, προσφέροντας αξιόπιστες λύσεις για κατοικίες και επαγγελματικούς χώρους.",
+      "subtitle": "Ποιότητα κατασκευής, custom λύσεις και πλήρης υποστήριξη στο πρόγραμμα Εξοικονομώ.",
+      "description": "Η AL. Anastasiou δραστηριοποιείται στον χώρο των κατασκευών και των αλουμινοκατασκευών, προσφέροντας αξιόπιστες λύσεις για κατοικίες και επαγγελματικούς χώρους.",
       "backgroundImage": "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?q=80&w=2070&auto=format&fit=crop",
       "hasPrimaryCTA": true,
       "primaryCTALabel": "ΖΗΤΗΣΤΕ ΠΡΟΣΦΟΡΑ",
       "primaryCTAUrl": "/contact",
       "hasSecondaryCTA": true,
       "secondaryCTALabel": "ΜΑΘΕΤΕ ΓΙΑ ΤΟ ΕΞΟΙΚΟΝΟΜΩ",
-      "secondaryCTAUrl": "/exoikonomo",
-      "description": "Η AL. Anastasiou δραστηριοποιείται στον χώρο των κατασκευών και των αλουμινοκατασκευών, προσφέροντας αξιόπιστες λύσεις για κατοικίες και επαγγελματικούς χώρους."
+      "secondaryCTAUrl": "/exoikonomo"
     },
     {
       "blockType": "al-anastasiou.richText",
       "title": "ΕΜΠΕΙΡΙΑ & ΤΕΧΝΟΓΝΩΣΙΑ ΣΤΗΝ ΕΥΒΟΙΑ ΚΑΙ ΤΗΝ ΑΤΤΙΚΗ",
-      "subtitle": "Η AL. Anastasiou – Κουφώματα Αλουμινίου προσφέρει σύγχρονες κατασκευές αλουμινίου, προσαρμοσμένες στις ανάγκες κάθε πελάτη.",
-      "backgroundImage": "https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=2070&auto=format&fit=crop",
-      "description": "Η AL. Anastasiou – Κουφώματα Αλουμινίου προσφέρει σύγχρονες κατασκευές αλουμινίου, προσαρμοσμένες στις ανάγκες κάθε πελάτη.\n\nΜε εμπειρία, τεχνογνωσία και ποιοτικά υλικά, αναλαμβάνουμε έργα στην Εύβοια και την Αττική, με στόχο την ενεργειακή αναβάθμιση και τη λειτουργική ανανέωση κάθε χώρου.\n\nΕΤΗ ΕΜΠΕΙΡΙΑΣ\n\nΟΛΟΚΛΗΡΩΜΕΝΑ ΕΡΓΑ"
+      "subtitle": "Η ΕΤΑΙΡΕΙΑ ΜΑΣ",
+      "description": "Η AL. Anastasiou – Κουφώματα Αλουμινίου προσφέρει σύγχρονες κατασκευές αλουμινίου, προσαρμοσμένες στις ανάγκες κάθε πελάτη. Με εμπειρία, τεχνογνωσία και ποιοτικά υλικά, αναλαμβάνουμε έργα στην Εύβοια και την Αττική, με στόχο την ενεργειακή αναβάθμιση και τη λειτουργική ανανέωση κάθε χώρου.",
+      "backgroundImage": "https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "blockType": "al-anastasiou.richText",
+      "title": "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ",
+      "subtitle": "ΕΞΕΙΔΙΚΕΥΜΕΝΕΣ ΛΥΣΕΙΣ ΓΙΑ ΚΑΘΕ ΧΩΡΟ"
+    },
+    {
+      "blockType": "al-anastasiou.cta",
+      "title": "ΓΙΑΤΙ ΝΑ ΜΑΣ ΕΠΙΛΕΞΕΤΕ",
+      "description": "Πολυετής εμπειρία, Υψηλή ποιότητα, Custom λύσεις, Πρόγραμμα Εξοικονομώ",
+      "buttonLabel": "ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΓΙΑ ΠΡΟΣΦΟΡΑ",
+      "buttonUrl": "/contact"
+    },
+    {
+      "blockType": "al-anastasiou.hero",
+      "title": "ΚΟΥΦΩΜΑΤΑ ΑΛΟΥΜΙΝΙΟΥ & ΕΝΕΡΓΕΙΑΚΗ ΑΝΑΒΑΘΜΙΣΗ",
+      "subtitle": "Ποιότητα κατασκευής, custom λύσεις και πλήρης υποστήριξη στο πρόγραμμα Εξοικονομώ.",
+      "description": "Η AL. Anastasiou δραστηριοποιείται στον χώρο των κατασκευών και των αλουμινοκατασκευών, προσφέροντας αξιόπιστες λύσεις για κατοικίες και επαγγελματικούς χώρους.",
+      "backgroundImage": "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?q=80&w=2070&auto=format&fit=crop",
+      "hasPrimaryCTA": true,
+      "primaryCTALabel": "ΖΗΤΗΣΤΕ ΠΡΟΣΦΟΡΑ",
+      "primaryCTAUrl": "/contact",
+      "hasSecondaryCTA": true,
+      "secondaryCTALabel": "ΜΑΘΕΤΕ ΓΙΑ ΤΟ ΕΞΟΙΚΟΝΟΜΩ",
+      "secondaryCTAUrl": "/exoikonomo"
+    },
+    {
+      "blockType": "al-anastasiou.richText",
+      "title": "ΕΜΠΕΙΡΙΑ & ΤΕΧΝΟΓΝΩΣΙΑ ΣΤΗΝ ΕΥΒΟΙΑ ΚΑΙ ΤΗΝ ΑΤΤΙΚΗ",
+      "subtitle": "Η ΕΤΑΙΡΕΙΑ ΜΑΣ",
+      "description": "Η AL. Anastasiou – Κουφώματα Αλουμινίου προσφέρει σύγχρονες κατασκευές αλουμινίου, προσαρμοσμένες στις ανάγκες κάθε πελάτη. Με εμπειρία, τεχνογνωσία και ποιοτικά υλικά, αναλαμβάνουμε έργα στην Εύβοια και την Αττική, με στόχο την ενεργειακή αναβάθμιση και τη λειτουργική ανανέωση κάθε χώρου.",
+      "backgroundImage": "https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "blockType": "al-anastasiou.richText",
+      "title": "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ",
+      "subtitle": "ΕΞΕΙΔΙΚΕΥΜΕΝΕΣ ΛΥΣΕΙΣ ΓΙΑ ΚΑΘΕ ΧΩΡΟ"
+    },
+    {
+      "blockType": "al-anastasiou.cta",
+      "title": "ΓΙΑΤΙ ΝΑ ΜΑΣ ΕΠΙΛΕΞΕΤΕ",
+      "description": "Πολυετής εμπειρία, Υψηλή ποιότητα, Custom λύσεις, Πρόγραμμα Εξοικονομώ",
+      "buttonLabel": "ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΓΙΑ ΠΡΟΣΦΟΡΑ",
+      "buttonUrl": "/contact"
     }
   ]
 }

@@ -4,7 +4,171 @@
   "blocks": [
     {
       "blockType": "al-anastasiou.hero",
-      "title": "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ"
+      "title": "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ",
+      "subtitle": "ΕΞΕΙΔΙΚΕΥΜΕΝΕΣ ΛΥΣΕΙΣ ΓΙΑ ΚΑΘΕ ΧΩΡΟ"
+    },
+    {
+      "blockType": "al-anastasiou.imageGallery",
+      "title": "Υπηρεσίες",
+      "images": [
+        {
+          "image": "https://images.unsplash.com/photo-1590053142630-f60814421b53?q=80&w=2070&auto=format&fit=crop",
+          "title": "Κουφώματα Αλουμινίου",
+          "description": "Κατασκευή κουφωμάτων αλουμινίου υψηλής ποιότητας, με έμφαση στη θερμομόνωση, την ασφάλεια και τη μοντέρνα αισθητική."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1621905252507-b354bcadcabc?q=80&w=2070&auto=format&fit=crop",
+          "title": "Πόρτες & Κάγκελα",
+          "description": "Σχεδιασμός και κατασκευή πορτών και κάγκελων προσαρμοσμένων στις διαστάσεις και το ύφος κάθε χώρου."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop",
+          "title": "Ανακαινίσεις Κουφωμάτων",
+          "description": "Αντικατάσταση παλαιών κουφωμάτων με νέες ενεργειακά αποδοτικές λύσεις για άμεση εξοικονόμηση ενέργειας."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1560749003-a4b1e97569ff?q=80&w=2000&auto=format&fit=crop",
+          "title": "WPC Πατώματα Πισίνας",
+          "description": "Κατασκευή πατωμάτων πισίνας από WPC υλικά, ανθεκτικά στην υγρασία και τον ήλιο, με χαμηλές απαιτήσεις συντήρησης."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop",
+          "title": "Σιδηροκατασκευές",
+          "description": "Ειδικές μεταλλικές κατασκευές για οικιακή και επαγγελματική χρήση, με έμφαση στη σταθερότητα και την ασφάλεια."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1581094288338-2314dddb7ecb?q=80&w=2070&auto=format&fit=crop",
+          "title": "Custom Κατασκευές",
+          "description": "Σχεδιάζουμε και υλοποιούμε ειδικές κατασκευές, πλήρως προσαρμοσμένες στις ανάγκες κάθε έργου."
+        }
+      ]
+    },
+    {
+      "blockType": "al-anastasiou.cta",
+      "title": "ΧΡΕΙΑΖΕΣΤΕ ΕΙΔΙΚΗ ΚΑΤΑΣΚΕΥΗ;",
+      "description": "Επικοινωνήστε μαζί μας για να βρούμε την ιδανική λύση για το δικό σας έργο.",
+      "buttonLabel": "ΕΠΙΚΟΙΝΩΝΙΑ",
+      "buttonUrl": "/contact"
+    },
+    {
+      "blockType": "al-anastasiou.hero",
+      "title": "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ",
+      "subtitle": "ΕΞΕΙΔΙΚΕΥΜΕΝΕΣ ΛΥΣΕΙΣ ΓΙΑ ΚΑΘΕ ΧΩΡΟ"
+    },
+    {
+      "blockType": "al-anastasiou.imageGallery",
+      "title": "Υπηρεσίες",
+      "images": [
+        {
+          "image": "https://images.unsplash.com/photo-1590053142630-f60814421b53?q=80&w=2070&auto=format&fit=crop",
+          "title": "Κουφώματα Αλουμινίου",
+          "description": "Κατασκευή κουφωμάτων αλουμινίου υψηλής ποιότητας, με έμφαση στη θερμομόνωση, την ασφάλεια και τη μοντέρνα αισθητική."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1621905252507-b354bcadcabc?q=80&w=2070&auto=format&fit=crop",
+          "title": "Πόρτες & Κάγκελα",
+          "description": "Σχεδιασμός και κατασκευή πορτών και κάγκελων προσαρμοσμένων στις διαστάσεις και το ύφος κάθε χώρου."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop",
+          "title": "Ανακαινίσεις Κουφωμάτων",
+          "description": "Αντικατάσταση παλαιών κουφωμάτων με νέες ενεργειακά αποδοτικές λύσεις για άμεση εξοικονόμηση ενέργειας."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1560749003-a4b1e97569ff?q=80&w=2000&auto=format&fit=crop",
+          "title": "WPC Πατώματα Πισίνας",
+          "description": "Κατασκευή πατωμάτων πισίνας από WPC υλικά, ανθεκτικά στην υγρασία και τον ήλιο, με χαμηλές απαιτήσεις συντήρησης."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop",
+          "title": "Σιδηροκατασκευές",
+          "description": "Ειδικές μεταλλικές κατασκευές για οικιακή και επαγγελματική χρήση, με έμφαση στη σταθερότητα και την ασφάλεια."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1581094288338-2314dddb7ecb?q=80&w=2070&auto=format&fit=crop",
+          "title": "Custom Κατασκευές",
+          "description": "Σχεδιάζουμε και υλοποιούμε ειδικές κατασκευές, πλήρως προσαρμοσμένες στις ανάγκες κάθε έργου."
+        }
+      ]
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1590053142630-f60814421b53?q=80&w=2070&auto=format&fit=crop",
+      "title": "Κουφώματα Αλουμινίου",
+      "description": "Κατασκευή κουφωμάτων αλουμινίου υψηλής ποιότητας, με έμφαση στη θερμομόνωση, την ασφάλεια και τη μοντέρνα αισθητική.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1621905252507-b354bcadcabc?q=80&w=2070&auto=format&fit=crop",
+      "title": "Πόρτες & Κάγκελα",
+      "description": "Σχεδιασμός και κατασκευή πορτών και κάγκελων προσαρμοσμένων στις διαστάσεις και το ύφος κάθε χώρου.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop",
+      "title": "Ανακαινίσεις Κουφωμάτων",
+      "description": "Αντικατάσταση παλαιών κουφωμάτων με νέες ενεργειακά αποδοτικές λύσεις για άμεση εξοικονόμηση ενέργειας.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1560749003-a4b1e97569ff?q=80&w=2000&auto=format&fit=crop",
+      "title": "WPC Πατώματα Πισίνας",
+      "description": "Κατασκευή πατωμάτων πισίνας από WPC υλικά, ανθεκτικά στην υγρασία και τον ήλιο, με χαμηλές απαιτήσεις συντήρησης.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop",
+      "title": "Σιδηροκατασκευές",
+      "description": "Ειδικές μεταλλικές κατασκευές για οικιακή και επαγγελματική χρήση, με έμφαση στη σταθερότητα και την ασφάλεια.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1581094288338-2314dddb7ecb?q=80&w=2070&auto=format&fit=crop",
+      "title": "Custom Κατασκευές",
+      "description": "Σχεδιάζουμε και υλοποιούμε ειδικές κατασκευές, πλήρως προσαρμοσμένες στις ανάγκες κάθε έργου.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1590053142630-f60814421b53?q=80&w=2070&auto=format&fit=crop",
+      "title": "Κουφώματα Αλουμινίου",
+      "description": "Κατασκευή κουφωμάτων αλουμινίου υψηλής ποιότητας, με έμφαση στη θερμομόνωση, την ασφάλεια και τη μοντέρνα αισθητική.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1621905252507-b354bcadcabc?q=80&w=2070&auto=format&fit=crop",
+      "title": "Πόρτες & Κάγκελα",
+      "description": "Σχεδιασμός και κατασκευή πορτών και κάγκελων προσαρμοσμένων στις διαστάσεις και το ύφος κάθε χώρου.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop",
+      "title": "Ανακαινίσεις Κουφωμάτων",
+      "description": "Αντικατάσταση παλαιών κουφωμάτων με νέες ενεργειακά αποδοτικές λύσεις για άμεση εξοικονόμηση ενέργειας.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1560749003-a4b1e97569ff?q=80&w=2000&auto=format&fit=crop",
+      "title": "WPC Πατώματα Πισίνας",
+      "description": "Κατασκευή πατωμάτων πισίνας από WPC υλικά, ανθεκτικά στην υγρασία και τον ήλιο, με χαμηλές απαιτήσεις συντήρησης.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop",
+      "title": "Σιδηροκατασκευές",
+      "description": "Ειδικές μεταλλικές κατασκευές για οικιακή και επαγγελματική χρήση, με έμφαση στη σταθερότητα και την ασφάλεια.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1581094288338-2314dddb7ecb?q=80&w=2070&auto=format&fit=crop",
+      "title": "Custom Κατασκευές",
+      "description": "Σχεδιάζουμε και υλοποιούμε ειδικές κατασκευές, πλήρως προσαρμοσμένες στις ανάγκες κάθε έργου.",
+      "blockType": "al-anastasiou.genericSection"
+    },
+    {
+      "blockType": "al-anastasiou.cta",
+      "title": "ΧΡΕΙΑΖΕΣΤΕ ΕΙΔΙΚΗ ΚΑΤΑΣΚΕΥΗ;",
+      "description": "Επικοινωνήστε μαζί μας για να βρούμε την ιδανική λύση για το δικό σας έργο.",
+      "buttonLabel": "ΕΠΙΚΟΙΝΩΝΙΑ",
+      "buttonUrl": "/contact"
     }
   ]
 }

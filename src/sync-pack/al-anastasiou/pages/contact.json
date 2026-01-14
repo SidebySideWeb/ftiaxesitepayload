@@ -4,7 +4,25 @@
   "blocks": [
     {
       "blockType": "al-anastasiou.hero",
-      "title": "ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ"
+      "title": "ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ",
+      "subtitle": "Για πληροφορίες, προσφορές ή συμμετοχή στο πρόγραμμα Εξοικονομώ, καλέστε μας ή συμπληρώστε τη φόρμα επικοινωνίας."
+    },
+    {
+      "blockType": "al-anastasiou.richText",
+      "title": "ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ",
+      "description": "Εύβοια & Αττική\n+30 2221 000 000\ninfo@anastasiou-alu.gr\nΔευτέρα - Παρασκευή: 09:00 - 18:00\nΆμεση απόκριση και αυτοψία στον χώρο σας.",
+      "backgroundImage": "https://images.unsplash.com/photo-1577017040065-650ee4d43339?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "blockType": "al-anastasiou.hero",
+      "title": "ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ",
+      "subtitle": "Για πληροφορίες, προσφορές ή συμμετοχή στο πρόγραμμα Εξοικονομώ, καλέστε μας ή συμπληρώστε τη φόρμα επικοινωνίας."
+    },
+    {
+      "blockType": "al-anastasiou.richText",
+      "title": "ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ",
+      "description": "Εύβοια & Αττική\n+30 2221 000 000\ninfo@anastasiou-alu.gr\nΔευτέρα - Παρασκευή: 09:00 - 18:00\nΆμεση απόκριση και αυτοψία στον χώρο σας.",
+      "backgroundImage": "https://images.unsplash.com/photo-1577017040065-650ee4d43339?q=80&w=2070&auto=format&fit=crop"
     }
   ]
 }
