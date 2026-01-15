@@ -13,7 +13,7 @@ const usersAccess: {
   update: Access
   delete: Access
 } = {
-  read: ({ req: { user } }) => {
+  read: ({ req: { user } }): boolean | { tenant: { equals: string | number } } | { id: { equals: string | number } } => {
     // Admins see all users
     if (isAdmin(user)) {
       return true
@@ -46,7 +46,7 @@ const usersAccess: {
     return isAdmin(user) ?? false
   },
 
-  update: ({ req: { user }, id }) => {
+  update: ({ req: { user }, id }): boolean | { tenant: { equals: string | number } } => {
     // Admins can update anyone
     if (isAdmin(user)) {
       return true
