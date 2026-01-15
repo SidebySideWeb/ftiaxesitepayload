@@ -4,7 +4,7 @@ import { isAdmin } from './isAdmin'
 /**
  * Helper to check if user is admin or editor
  */
-function isAdminOrEditor(user?: { roles?: string | string[] }): boolean {
+function isAdminOrEditor(user?: { roles?: string | string[] } | null): boolean {
   if (!user?.roles) return false
   
   const roles = Array.isArray(user.roles) ? user.roles : [user.roles]
