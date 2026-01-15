@@ -1,7 +1,16 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, CollectionBeforeChangeHook } from 'payload'
 import { tenantAccess } from '../access/tenantAccess'
 import { tenantBlocks } from '../tenantRegistry'
 import { pageBlockGuardrails, normalizeBlocksHook } from '../hooks/blockGuardrails'
+
+const assignTenantHook: CollectionBeforeChangeHook = async ({ data, req, operation }) => {
+  if (operation === 'create' && req.user?.tenant && !data.tenant) {
+    // Assign tenant from logged-in user
+    const tenantId = typeof req.user.tenant === 'object' ? req.user.tenant.id : req.user.tenant
+    data.tenant = tenantId
+  }
+  return data
+}
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -16,7 +25,7 @@ export const Pages: CollectionConfig = {
   },
   hooks: {
     beforeValidate: [pageBlockGuardrails],
-    beforeChange: [normalizeBlocksHook],
+    beforeChange: [normalizeBlocksHook, assignTenantHook],
   },
   fields: [
     {

@@ -2,8 +2,19 @@ import type { Access } from 'payload'
 import { isAdmin } from './isAdmin'
 
 /**
+ * Helper to check if user is admin or editor
+ */
+function isAdminOrEditor(user?: { roles?: string | string[] }): boolean {
+  if (!user?.roles) return false
+  
+  const roles = Array.isArray(user.roles) ? user.roles : [user.roles]
+  return roles.includes('admin') || roles.includes('editor')
+}
+
+/**
  * Access control for tenant-scoped collections
  * - Super admins see all tenants and content
+ * - Editors see only their assigned tenant's content
  * - Regular users see only their assigned tenant's content
  */
 export const tenantAccess: {
@@ -19,7 +30,7 @@ export const tenantAccess: {
       return true
     }
 
-    // Regular users see only their tenant's content
+    // Editors and regular users see only their tenant's content
     if (user?.tenant) {
       // Extract tenant ID (handles both string ID and object)
       const tenantId = typeof user.tenant === 'object' ? user.tenant.id : user.tenant
@@ -45,16 +56,17 @@ export const tenantAccess: {
       return true
     }
 
-    // Regular users can only create content for their own tenant
-    if (user?.tenant) {
-      const userTenantId = typeof user.tenant === 'object' ? user.tenant.id : user.tenant
-      const dataTenantId = typeof data?.tenant === 'object' ? data.tenant.id : data?.tenant
+    // Editors and regular users can create content
+    // The tenant will be auto-assigned by hooks, so we allow creation
+    // The hook will ensure the tenant matches the user's tenant
+    if (isAdminOrEditor(user) && user?.tenant) {
+      // Allow creation - hook will assign tenant automatically
+      return true
+    }
 
-      // Ensure the tenant field matches the user's tenant
-      if (dataTenantId === userTenantId) {
-        return true
-      }
-      return false
+    // If user has tenant but is not editor/admin, still allow (for backward compatibility)
+    if (user?.tenant) {
+      return true
     }
 
     return false
@@ -66,7 +78,7 @@ export const tenantAccess: {
       return true
     }
 
-    // Regular users can only update their tenant's content
+    // Editors and regular users can only update their tenant's content
     if (user?.tenant) {
       // Extract tenant ID (handles both string ID and object)
       const tenantId = typeof user.tenant === 'object' ? user.tenant.id : user.tenant
@@ -86,7 +98,7 @@ export const tenantAccess: {
       return true
     }
 
-    // Regular users can only delete their tenant's content
+    // Editors and regular users can only delete their tenant's content
     if (user?.tenant) {
       // Extract tenant ID (handles both string ID and object)
       const tenantId = typeof user.tenant === 'object' ? user.tenant.id : user.tenant

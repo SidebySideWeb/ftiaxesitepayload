@@ -1,6 +1,15 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, CollectionBeforeChangeHook } from 'payload'
 import { tenantAccess } from '../access/tenantAccess'
 import { validateUrl } from '../utils/blockValidation'
+
+const assignTenantHook: CollectionBeforeChangeHook = async ({ data, req, operation }) => {
+  if (operation === 'create' && req.user?.tenant && !data.tenant) {
+    // Assign tenant from logged-in user
+    const tenantId = typeof req.user.tenant === 'object' ? req.user.tenant.id : req.user.tenant
+    data.tenant = tenantId
+  }
+  return data
+}
 
 export const NavigationMenus: CollectionConfig = {
   slug: 'navigation-menus',
@@ -9,6 +18,9 @@ export const NavigationMenus: CollectionConfig = {
     defaultColumns: ['title', 'tenant', 'createdAt'],
   },
   access: tenantAccess,
+  hooks: {
+    beforeChange: [assignTenantHook],
+  },
   fields: [
     {
       name: 'tenant',
