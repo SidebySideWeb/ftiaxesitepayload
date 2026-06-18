@@ -99,7 +99,7 @@ export const Forms: CollectionConfig = {
           name: 'options',
           type: 'array',
           admin: {
-            condition: (data) => data.type === 'select',
+            condition: (_data, siblingData) => siblingData?.type === 'select',
             description: 'Options for select field',
           },
           fields: [
